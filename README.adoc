@@ -1,0 +1,3 @@
+= UniFi Dynamic DNS
+
+A program to handle UniFi dynamic DNS updates.

@@ -18,11 +18,15 @@ import (
 	"github.com/hashicorp/go-tfe"
 )
 
-//go:embed tls/cert.pem
-var tlsCert []byte
+// This is a self-signed certificate to satisfy the connection from UniFi to
+// this service. There's no security risk here.
+var (
+	//go:embed tls/cert.pem
+	tlsCert []byte
 
-//go:embed tls/key.pem
-var tlsKey []byte
+	//go:embed tls/key.pem
+	tlsKey []byte
+)
 
 func main() {
 	logger := slog.New(slog.NewTextHandler(os.Stderr, &slog.HandlerOptions{}))

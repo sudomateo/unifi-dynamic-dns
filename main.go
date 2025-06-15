@@ -95,6 +95,7 @@ func run(ctx context.Context, logger *slog.Logger) error {
 			return
 		}
 
+		// TODO(sudomateo): Make the workspace and variable set dynamic.
 		if _, err := terraformCloudClient.Variables.Update(r.Context(), "ws-KidBzbXUjLSXKYgH", "var-ovgRSmpM1gLBgywH", tfe.VariableUpdateOptions{
 			Value: tfe.String(ip),
 		}); err != nil {
@@ -105,6 +106,7 @@ func run(ctx context.Context, logger *slog.Logger) error {
 		if _, err := terraformCloudClient.Runs.Create(r.Context(), tfe.RunCreateOptions{
 			Message: tfe.String("Triggered via dynamic dns."),
 			Workspace: &tfe.Workspace{
+				// TODO(sudomateo): Make the workspace dynamic.
 				ID: "ws-KidBzbXUjLSXKYgH",
 			},
 			AutoApply: tfe.Bool(true),

@@ -1,6 +1,6 @@
 module github.com/sudomateo/unifi-dynamic-dns
 
-go 1.24.0
+go 1.24.4
 
 require github.com/hashicorp/go-tfe v1.76.0
 
